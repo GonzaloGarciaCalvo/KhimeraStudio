@@ -1,11 +1,100 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import VF from '../assets/khimera-bio-trade-cards-vf.webp'
+import GF from '../assets/khimera-bio-trade-cards-gf.webp'
+import VB from '../assets/khimera-bio-trade-cards-vb.webp'
+import GB from '../assets/khimera-bio-trade-cards-gb.webp'
+import brandVideo from '../assets/khimera-portfolio.webm'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+console.log(brandVideo)
+
 ---
 
 <Layout>
-	<Welcome />
+  <main>
+    <section class="introSection">
+      <div>
+        <p>chimera</p>
+        <p>/kʌɪˈmɪərə,kɪˈmərʌ/</p>
+        <p>noun</p>
+        <p>
+          1. a thing which is hoped for, but is illusory or impossible to achieve.
+        </p>
+        <p>
+          2. (in Greek mythology) a fire-breathing female monster with a lion's head, a goat's body, and a serpent's tail.
+        </p>
+        <p>
+          Our name comes from our passion for the art of creation, magic, and folklore.
+        </p>
+        <p>
+          Today, as we continue to create and inspire, Khimera Studio remains a statement to the power of imagination, inviting everyone to join us on a journey where thoughts take shape and stories come to life.
+        </p>
+      </div>
+    </section>
+    <!-- <section>
+      <h1 class="sectionTitle">About Us</h1>
+    </section> -->
+    <section>
+      <h1 class="sectionTitle">About Us</h1>
+      <h2 class="aboutUsSubTitle">Flip the card to get to know us better!</h2>
+      <div class="sceneContainer">
+        <div class="scene">
+          <div class="container" id="container1">
+            <div class="front" onclick="handleClick1()">
+              <img src={GF.src} alt="brand logo">
+            </div>
+            <div class="back" onclick="handleClick1()">
+              <img src={GB.src} alt="brand logo">
+            </div>
+          </div>
+        </div>
+        <div class="scene">
+          <div class="container" id="container2">
+            <div class="front" onclick="handleClick2()">
+              <img src={VF.src} alt="brand logo">
+            </div>
+            <div class="back" onclick="handleClick2()">
+              <img src={VB.src} alt="brand logo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="videoSection">
+      <h1 class="sectionTitle">OUR WORK</h1>
+      <div class="videoContainer">
+        <video 
+          src={brandVideo} 
+          controls 
+          preload="metadata"
+        >
+        </video>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div>
+      <h1 class="footerTitle">
+        Sorry for the dust… Our brand is getting a makeover.
+      </h1>
+      <!-- <h2 class="subTitle">Come back soon!</h2> -->
+      <p class="contact">Meanwhile enjoy the sneak peek above and if you want, you can write us to: khimerastudio@gmail.com</p>
+    </div>
+
+  </footer>
 </Layout>
+<script defer>
+  let rotateCount1 = 1;
+  let rotateCount2 = 1;
+
+  function handleClick1() {
+    const container = document.getElementById('container1');
+    container?.style.setProperty('--rotate-count', rotateCount1++);
+    container?.classList.add('rotate');
+  }
+  function handleClick2() {
+    const container = document.getElementById('container2');
+    container?.style.setProperty('--rotate-count', rotateCount2++);
+    container?.classList.add('rotate');
+  }
+</script>

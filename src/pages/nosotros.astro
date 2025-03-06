@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+//import './styles.css';
+
+---
+
+<!-- <html lang="es"> -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotación 3D con Click</title>
+  </head>
+  
+  <Layout>
+    <div class="scene">
+      <div class="container" id="container">
+        <div class="front" onclick="handleClick()">
+          Texto en la capa superior
+        </div>
+        <div class="back" onclick="handleClick()">
+          <p>Texto en la capa inferior</p>
+        </div>
+      </div>
+    </div>
+  </Layout>
+    <script defer>
+      let rotateCount = 1;
+
+      function handleClick() {
+        const container = document.getElementById('container');
+        container?.style.setProperty('--rotate-count', rotateCount++);
+        container?.classList.add('rotate');
+      }
+    </script>
+<!-- </html> -->

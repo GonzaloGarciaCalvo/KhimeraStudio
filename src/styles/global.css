@@ -1,0 +1,248 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Lato-Light';
+  src: URL('./fonts/Lato-Light.woff') format('woff');
+  }
+
+body {
+  width: 100%;
+  /* justify-content: center;
+  align-items: center; */
+
+  font-family: 'Lato-Light';
+}
+
+header {
+  width: 100%;
+}
+
+header nav {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  & img {
+    width: 24rem;
+    height: auto;
+  }
+}
+
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.introSection {
+  width: 100%;
+  padding-inline: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+
+  & div {
+    width: 100%;
+  }
+  & p {
+    font-size: 1.1rem;
+  }
+  & div p:nth-child(3),
+  & div p:nth-child(5) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.sectionTitle {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #003366;
+  padding-bottom: 1.5rem;
+}
+
+.aboutUsSubTitle {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+
+.sceneContainer {
+  width: 100%;
+  height: auto;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 6rem;
+  padding-top: 0rem;
+  padding-bottom: 4rem;
+}
+
+.scene {
+  width: 20%;
+  height: auto;
+  min-width: 16rem;
+  /* perspective: 1000px; */ /* Añade perspectiva para la rotación 3D */
+  /* position:static */
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 0.644;
+  position: relative;
+  transform-style: preserve-3d; /* Asegura la rotación en 3D */
+  transition: transform 2s; /* Transición suave de 2 segundos */
+}
+
+.front, .back {
+  position: absolute; 
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden; /* Oculta la capa trasera cuando está girada */
+  cursor: pointer; 
+  object-fit: contain;
+}
+
+.front {
+  & img {
+    width:100%;
+    height: auto;
+    aspect-ratio: 0.644;
+    border-radius: 10px;
+  }
+}
+
+.back {
+  transform: rotateY(180deg); /* Gira la capa trasera */
+  & img {
+    width:100%;
+    height: auto;
+    aspect-ratio: 0.644;
+    border-radius: 10px;
+  }
+}
+
+.rotate {
+  transform: rotateY(calc(180deg * var(--rotate-count)));
+}
+.videoSection{
+  width: 100%;
+}
+.videoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/src/assets/patron-khimera.svg');
+  background-size: auto; /* Usa el tamaño original de la imagen */
+  background-repeat: repeat; 
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  & video {
+    width: 20rem;
+  }
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 10%;
+  background-color: rgb(233, 230, 230);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  & div {
+    width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+  }
+
+  & div h1 {
+      padding-top: 2rem;
+      font-size: 1.2rem;
+    }
+  & div h2 {
+    font-size: 1.2rem;
+  }
+  & div p {
+    font-size: 1.1rem;
+  }
+}
+
+
+@media (width <= 500px) {
+
+  header nav {
+  & img {
+    width: 90%;
+    height: auto;
+  }
+}
+  .introSection {
+    padding-inline: 8%;
+  }
+  .sectionTitle {
+  font-size: 2rem;
+}
+  .aboutUsSubTitle {
+    margin-bottom: 1.2rem;
+  }
+  .sceneContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .scene {
+    min-width: 14rem;
+}
+  .videoContainer {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    & video {
+      width: 95%;
+    }
+  }
+
+}
+
+@media (  500px < width <= 750px) {
+  .sceneContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  /* main{
+    width: 100%;
+    padding-inline: 32%;
+    & h1 {
+      font-size: 1.3rem;
+    }
+    & h2 {
+    font-size: 1.3rem;
+  }
+  } */
+}
+
