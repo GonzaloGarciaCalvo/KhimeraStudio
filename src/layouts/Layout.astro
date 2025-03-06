@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import logoGif from "../assets/khimera-animated-new-logo.gif"
 ---
 
 <!doctype html>
@@ -9,12 +10,14 @@ import "../styles/global.css";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Khimera Studio, disign studio ">
+    <meta name="keywords" content="Khimera Studio, disign studio, web design, web development, web apps, ">
 		<title>Khimera Studio</title>
 	</head>
 	<body> 
 		<header>
 			<nav>
-				<img src="/src/assets/khimera-animated-new-logo.gif" alt="brand logo">
+				<img src={logoGif.src} alt="brand logo">
 			</nav>
 		</header>
 		<slot />
