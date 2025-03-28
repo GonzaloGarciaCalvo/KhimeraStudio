@@ -1,18 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import VF from '../assets/khimera-bio-trade-cards-vf.webp'
-import GF from '../assets/khimera-bio-trade-cards-gf.webp'
-import VB from '../assets/khimera-bio-trade-cards-vb.webp'
-import GB from '../assets/khimera-bio-trade-cards-gb.webp'
+import GF from '../assets/bio-card1.webp'
+import GB from '../assets/bio-card2.webp'
+import VF from '../assets/bio-card3.webp'
+import VB from '../assets/bio-card4.webp'
 import brandVideo from '../assets/khimera-portfolio.webm'
-
-console.log(brandVideo)
-
+import Services from '../components/Services.astro';
+import logoGif from "../assets/khimera-animated-logo.gif"
+import contactPhone from '../assets/contact-01.svg'
+import contactEmail from '../assets/contact-07.svg'
 ---
 
 <Layout>
   <main>
-    <section class="introSection">
+    <section class="introSection" id="Intro" data-name="navLinkField">
       <div>
         <p>chimera</p>
         <p>/kʌɪˈmɪərə,kɪˈmərʌ/</p>
@@ -23,78 +24,271 @@ console.log(brandVideo)
         <p>
           2. (in Greek mythology) a fire-breathing female monster with a lion's head, a goat's body, and a serpent's tail.
         </p>
-        <p>
+        <p id="paragraph1">
           Our name comes from our passion for the art of creation, magic, and folklore.
         </p>
-        <p>
+        <p id="paragraph2">
           Today, as we continue to create and inspire, Khimera Studio remains a statement to the power of imagination, inviting everyone to join us on a journey where thoughts take shape and stories come to life.
         </p>
       </div>
     </section>
-    <!-- <section>
-      <h1 class="sectionTitle">About Us</h1>
-    </section> -->
-    <section>
-      <h1 class="sectionTitle">About Us</h1>
-      <h2 class="aboutUsSubTitle">Flip the card to get to know us better!</h2>
+    <section id="AboutUs" data-name="navLinkField">
+      <h1 class="sectionTitle">ABOUT US</h1>
+      <h2 class="aboutUsSubTitle"><span class="aboutUsSubTitleSpan">Click the card</span> to flip it and get to know us better!</h2>
       <div class="sceneContainer">
         <div class="scene">
           <div class="container" id="container1">
-            <div class="front" onclick="handleClick1()">
-              <img src={GF.src} alt="brand logo">
+            <div class="front " onclick="handleClick1()">
+              <img id="front1" src={GF.src} alt="brand logo" class="customShadow">
             </div>
             <div class="back" onclick="handleClick1()">
-              <img src={GB.src} alt="brand logo">
+              <img loading="lazy" id="back1" src={GB.src} alt="brand logo" class="customShadow">
             </div>
           </div>
         </div>
         <div class="scene">
           <div class="container" id="container2">
             <div class="front" onclick="handleClick2()">
-              <img src={VF.src} alt="brand logo">
+              <img id="front2" src={VF.src} alt="brand logo" class="customShadow">
             </div>
             <div class="back" onclick="handleClick2()">
-              <img src={VB.src} alt="brand logo">
+              <img loading="lazy" id="back2" src={VB.src} alt="brand logo" >
             </div>
           </div>
         </div>
       </div>
+      <p class="aboutUsDescription">
+        Khimera kicked off its journey in 2012 as a freelance gig, crafting some graphic design projects for Vanessa's clients in Costa Rica and the U.S. Recently, it’s morphed into a family business! After 
+        <span>
+          <a href="https://www.linkedin.com/in/vanessabarzuna/" target="_blank" rel=" noreferrer" >
+            Vanessa
+          </a>
+        </span> 
+        moved to Buenos Aires, Argentina, she teamed up with her husband 
+        <span>
+          <a href="https://www.linkedin.com/in/gonzalo-garcia-calvo/" target="_blank" rel=" noreferrer">
+            Gonzalo.
+          </a>
+        </span>Together, they’re not just expanding their services but also spreading their magic across South America too.
+      </p>
     </section>
-    <section class="videoSection">
+    <section class="videoSection" id="OurWork" data-name="navLinkField">
       <h1 class="sectionTitle">OUR WORK</h1>
       <div class="videoContainer">
         <video 
-          src={brandVideo} 
-          controls 
-          preload="metadata"
+          controls
+          preload="auto"
+          src={brandVideo}
         >
         </video>
       </div>
     </section>
+    <section class="servicesSection" id="OurServices" data-name="navLinkField">
+      <h1 class="sectionTitle">OUR SERVICES</h1>
+      <p>Our services cover a wide range from graphic design to web development.
+        Below, are some of the most popular services we provide more often:
+      </p>
+      <Services />
+      <h2>*Third Party Services Management</h2>
+    </section>
+    <section class="contactFormSection">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSegb8a5y6rvvVH3g2byjynnDc5GpZdsqZZOL4OVuK8a56nKJw/viewform?usp=sharing" target="_blank" rel=" noreferrer" class="formLink">Get your quote ASAP!</a>
+    </section>
   </main>
-  <footer>
-    <div>
-      <h1 class="footerTitle">
-        Sorry for the dust… Our brand is getting a makeover.
-      </h1>
-      <!-- <h2 class="subTitle">Come back soon!</h2> -->
-      <p class="contact">Meanwhile enjoy the sneak peek above and if you want, you can write us to: khimerastudio@gmail.com</p>
-    </div>
-
+  <footer id="Contact" data-name="navLinkField">
+    <img src={logoGif.src} alt="brand logo animated gif" />
+    <div class="footerBanner">
+      <div>
+        <img src={contactEmail.src} alt="">
+        <p>khimerastudio@gmail.com</p>
+      </div>
+      <div>
+        <img src={contactPhone.src} alt="">
+        <p>+54 9 11 50112479</p>
+      </div>
+    </div>    
   </footer>
 </Layout>
 <script defer>
+  // this script is for flip cards
   let rotateCount1 = 1;
   let rotateCount2 = 1;
+  let timeoutId1;
+  let timeoutId2;
 
   function handleClick1() {
     const container = document.getElementById('container1');
-    container?.style.setProperty('--rotate-count', rotateCount1++);
+    const front = document.getElementById('front1');
+    const back = document.getElementById('back1');
+    if (timeoutId1) {
+        clearTimeout(timeoutId1);
+    }
+    if (rotateCount1 %2 !== 0) {
+      setTimeout(() => {
+        front.classList.remove('customShadow')
+        back.classList.add('customShadow')
+      },300)
+    } else {
+      setTimeout(() => {
+        front.classList.add('customShadow')
+      },300)
+    }
     container?.classList.add('rotate');
+    container?.style.setProperty('--rotate-count', rotateCount1++);
   }
   function handleClick2() {
     const container = document.getElementById('container2');
-    container?.style.setProperty('--rotate-count', rotateCount2++);
+    const front = document.getElementById('front2');
+    const back = document.getElementById('back2');
+    if (timeoutId2) {
+        clearTimeout(timeoutId2);
+    }
+    if (rotateCount2 %2 !== 0) {
+      setTimeout(() => {
+        front.classList.remove('customShadow')
+        back.classList.add('customShadow')
+      },300)
+    } else {
+      setTimeout(() => {
+        front.classList.add('customShadow')
+      },300)
+    }
     container?.classList.add('rotate');
+    container?.style.setProperty('--rotate-count', rotateCount2++);
   }
+</script>
+<script>
+  document.querySelectorAll('.iconContainer').forEach((container) => {
+    const img1 = container.querySelector('img:nth-child(1)') as HTMLElement; 
+    const img2 = container.querySelector('img:nth-child(2)') as HTMLElement; 
+    if (img1 && img2) {
+        img1.addEventListener('touchstart', (event) => {
+          img1.style.display = 'none';
+          img2.style.display = 'block';
+        },  {passive: true});
+
+        container.addEventListener('touchend', () => {
+          img1.style.display = 'block';
+          img2.style.display = 'none';
+        });
+
+        img1.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+        });
+        img2.addEventListener('contextmenu', (event) => {
+          event.preventDefault();
+        });
+      } 
+  });
+
+
+  // dialog display  //
+  for (let i = 0; i <= 11; i++) {
+    const openButton = document.getElementById(`openDetails${i}`);
+    const openButtonAlternative = document.getElementsByClassName(`openDetails${i}`);
+    const cancelButton = document.getElementById(`closeDetails${i}`);
+    const favDialog = document.getElementById(`favDialog${i}`);
+  
+    openButton?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.showModal())
+    openButtonAlternative?.item(0)?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.showModal())
+    cancelButton?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.close())
+
+    openButton?.addEventListener("touchStart", () =>(favDialog as HTMLDialogElement)?.showModal());    
+    cancelButton?.addEventListener("touchStart", () =>(favDialog as HTMLDialogElement)?.close())
+  }
+</script>
+<script> // mobile menu display  //
+  let isMenuOpen = false;
+  const munuButton = document.getElementById('hamburger');
+
+  munuButton?.addEventListener('click', () => {
+    const menu = document.getElementById('mobileMenu');
+    /* const desktopMenu = document.getElementById('desktopMenu'); */
+    if (isMenuOpen) { 
+      /* menu?.classList.remove('open'); */
+      menu?.classList.add('mobileMenuHidden');
+      isMenuOpen = false
+      /* desktopMenu?.classList.remove('open'); */
+    } else {/* mobileMenuHidden    mobileMenuDisplayed */
+      menu?.classList.remove('mobileMenuHidden');
+      isMenuOpen = true
+      /* menu?.classList.add('mobileMenuDisplayed'); */
+      /* desktopMenu?.classList.add('open'); */
+    }
+  })
+
+  const nav = document.querySelector('#navBar') as HTMLElement;
+  let navTop = nav.offsetTop;
+  let isFixed = false;
+
+  function fixedNav() {
+    if (window.scrollY >= navTop) {    
+      nav.classList.add('fixed');
+      /* if (!isFixed) {
+        console.log("entro en isFIXED")
+        for (let el of elementos) {
+          el.classList.remove("linkFontSizeBig");
+          el.classList.add("linkFontSizeSmall");
+        }
+      } */
+      isFixed = true
+    } else {
+      nav.classList.remove('fixed');    
+      /* if (isFixed) {
+        console.log("entro en isFIXED")
+        for (let el of elementos) {
+
+          el.classList.remove("linkFontSizeSmall");
+          el.classList.add("linkFontSizeBig");
+        }
+      }
+      isFixed = false */
+    }
+  }
+
+  window.addEventListener('scroll', fixedNav);
+
+// change color link on scroll acordin to section  //
+  const links = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('[data-name="navLinkField"]');
+
+const observerGeneral = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(link => {
+          link.classList.toggle(
+            'active-link',
+            link.getAttribute('href') === `#${entry.target.id}`
+          );
+        });
+      }
+    });
+  }, 
+  { threshold: 0.55 }
+);
+
+const observerEspecifico = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(link => {
+          link.classList.toggle(
+            'active-link',
+            link.getAttribute('href') === `#${entry.target.id}`
+          );
+        });
+      }
+    });
+  }, 
+  { threshold: 0.2 }
+);
+
+sections.forEach(section => {
+  if (section.id === 'OurServices') {
+    observerEspecifico.observe(section);
+  } else {
+    observerGeneral.observe(section);
+  }
+});
 </script>
