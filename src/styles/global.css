@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-:root {
+/* :root {
   --shadowColor: rgb(0, 0, 0);
   --brandColor: #003366;
   --brandViolete: #6741F2;
@@ -12,18 +12,61 @@
   --fillColor: black;
 }
 
-@media (prefers-color-scheme: dark)  {
+@media (prefers-color-scheme: dark) {
   :root {
     --shadowColor: rgb(0, 0, 0);
     --brandColor: #003366;
-    /* --brandTextColor: #d0edfd; */
-    /* --brandTextColor: #d9f2ff; */
-    --brandTextColor: #e2f5ff;
+    --brandTextColor: #eef5f8;
     --brandViolete: #6741F2;
     --desktopNavBackground:#121212;
     --fillColor: white;
   } 
+} */
+/* --brandTextColor: #d0edfd; */
+/* --brandTextColor: #d9f2ff; */
+/* --brandTextColor: #e2f5ff; */
+
+
+:root {
+  --shadowColor: rgb(0, 0, 0);
+  --brandColor: #003366;
+  --brandTextColor: #003366;
+  --brandViolete: #6741F2;
+  --desktopNavBackground: white;
+  --fillColor: black;
+  --backGroundColor: white;
+  --textColor: black;
 }
+
+html.dark {
+  --desktopNavBackground: #121212;
+  --fillColor: white;
+  --brandTextColor: #eef5f8;
+  --backGroundColor: #121212;
+  --textColor: white;
+}
+
+html.light {
+  --desktopNavBackground: white;
+  --fillColor: black;
+  --backGroundColor: white;
+  --brandTextColor: #003366;
+  --textColor: black;
+}
+
+/* Deja la media query como fallback */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --shadowColor: rgb(0, 0, 0);
+    --brandColor: #003366;
+    --brandTextColor: #eef5f8;
+    --brandViolete: #6741F2;
+    --desktopNavBackground: #121212;
+    --fillColor: white;
+    --backGroundColor: #121212;
+    --textColor: white;
+  }
+} */
 
 @font-face {
   font-family: 'Lato-Light';
@@ -43,6 +86,8 @@ html {
 body {
   width: 100%;
   font-family: 'Lato-Light', sans-serif;
+  background-color: var(--backGroundColor);
+  color: var(--textColor)
 }
 
 /** Header **/
@@ -149,6 +194,80 @@ header nav a {
   flex-direction: row;
   justify-content:flex-end;
 }
+
+.theme-toggle-wrapper {/* Dark button */
+  /* position: relative;
+  display: inline-block; */
+  border: 1px solid var(--toggle-border-color);
+  border-radius: 50px;
+  /* padding: 7.5px; */
+  margin-inline: 0.5rem;
+  cursor: pointer;
+}
+.theme-toggle-checkbox {
+  opacity: 0;
+  position: absolute;
+}
+#theme-toggle-label {
+  background-color: var(--textColor);
+  border-radius: 33px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7.5px;
+  position: relative;
+  width: 4.1rem;
+  height: 1.7rem;
+  transform: scale(0.7);
+  box-shadow: 0 0 0 1px var(--toggle-border-color);
+  outline: 1px solid transparent;
+}
+.icon-tabler-sun {
+  color: gray;
+}
+.icon-tabler-moon {
+  color: #090B11;
+}
+.icon-tabler {
+  width: 1.3rem;
+  height: auto;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  z-index: 10;
+}
+#theme-toggle-label {
+  cursor: pointer;
+}
+.theme-toggle-checkbox:checked + #theme-toggle-label #theme-toggle-ball {
+  transform: translateX(27.5px);
+}
+#theme-toggle-label #theme-toggle-ball {
+  background-color: var(--brandViolete);
+  border-radius: 50%;
+  position: absolute;
+  height: 1.6rem;
+  width: 1.6rem;
+  transform: translateX(-2.4px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+}
+
+.languageToggle a {
+  border-radius: 33px;
+  width: 4.1rem;
+  height: 1.7rem;
+  background-color: green;
+  margin-inline: 0.5rem;
+  scale: 0.7;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* cursor: pointer; */
+  font-size: 1.1rem;
+}
+
+
+
 
 main {
   width: 100%;
@@ -323,6 +442,11 @@ main {
   & video {
     width: 20rem;
   }
+}
+#OurWork p {
+  padding-inline: 15%;
+  padding-bottom: 2rem;
+  font-size: 1.1rem;
 }
 
 /** Services **/
@@ -526,8 +650,6 @@ footer {
   }
 }
 
-
-
 @media (width <= 500px) {
   header {
     padding-inline: 3%;
@@ -599,6 +721,9 @@ footer {
   .aboutUsDescription {
   padding-inline: 8%;
 }
+  #OurWork p {
+    padding-inline: 8%;
+  }
   .videoContainer {
     width: 100%;
     background-image: none;

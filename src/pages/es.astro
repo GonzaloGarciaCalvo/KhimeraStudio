@@ -1,16 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import GF from '../assets/bio-card1.webp'
-import GB from '../assets/bio-card2.webp'
-import VF from '../assets/bio-card3.webp'
-import VB from '../assets/bio-card4.webp'
+import GF from '../assets/bio-card5.webp'
+import GB from '../assets/bio-card7.webp'
+import VF from '../assets/bio-card6.webp'
+import VB from '../assets/bio-card8.webp'
 import brandVideo from '../assets/khimera-portfolio.webm'
-import Services from '../components/Services.astro';
+import Services from '../components/ServicesEsp.astro';
 import logoGif from "../assets/khimera-animated-logo.gif"
 import contactPhone from '../assets/contact-01.svg'
 import contactEmail from '../assets/contact-07.svg'
 import NavBar from '../components/NavBar.astro';
-
+/* import videoData from '../data/video.vtt' */
 ---
 
 <Layout>
@@ -18,40 +18,40 @@ import NavBar from '../components/NavBar.astro';
     <NavBar />
     <section class="introSection" id="Intro" data-name="navLinkField">
       <div>
-        <p>chimera</p>
-        <p>/kʌɪˈmɪərə,kɪˈmərʌ/</p>
-        <p>noun</p>
+        <p>Quimera</p>
+        <p>kiˈme.ra/</p>
+        <p>Sustantivo</p>
         <p>
-          1. a thing which is hoped for, but is illusory or impossible to achieve.
+          1. Algo que se desea con ilusión, pero que es imposible o muy difícil de alcanzar. Una utopía.
         </p>
         <p>
-          2. (in Greek mythology) a fire-breathing female monster with a lion's head, a goat's body, and a serpent's tail.
+          2.	(En la mitología griega) Un monstruo que escupe fuego, con cabeza de león, cuerpo de cabra y cola de serpiente.
         </p>
         <p id="paragraph1">
-          Our name comes from our passion for the art of creation, magic, and folklore.
+          Nuestro nombre nace de nuestra pasión por el arte de la creación, la magia y el folclore.
         </p>
         <p id="paragraph2">
-          Today, as we continue to create and inspire, Khimera Studio remains a statement to the power of imagination, inviting everyone to join us on a journey where thoughts take shape and stories come to life.
+          Hoy, mientras seguimos creando e inspirando, Khimera Studio es un testimonio del poder de la imaginación. Te invitamos a unirte a nuestro viaje, donde las ideas toman forma y las historias cobran vida.
         </p>
       </div>
     </section>
     <section id="AboutUs" data-name="navLinkField">
-      <h1 class="sectionTitle">ABOUT US</h1>
-      <h2 class="aboutUsSubTitle"><span class="aboutUsSubTitleSpan">Click the card</span> to flip it and get to know us better!</h2>
+      <h1 class="sectionTitle">NOSOTROS</h1>
+      <h2 class="aboutUsSubTitle"><span class="aboutUsSubTitleSpan">¡Hacé clic </span> en la tarjeta para voltearla y conocernos mejor!</h2>
       <div class="sceneContainer">
         <div class="scene">
           <div class="container" id="container1">
             <div class="front" data-flip="1">
               <img id="front1" src={GF.src} alt="brand logo" class="customShadow">
             </div>
-            <div class="back" data-flip="1">
+            <div class="back" data-flip="1" >
               <img loading="lazy" id="back1" src={GB.src} alt="brand logo" class="customShadow">
             </div>
           </div>
         </div>
         <div class="scene">
           <div class="container" id="container2">
-            <div class="front" data-flip="2">
+            <div class="front" data-flip="2" >
               <img id="front2" src={VF.src} alt="brand logo" class="customShadow">
             </div>
             <div class="back" data-flip="2" >
@@ -61,23 +61,23 @@ import NavBar from '../components/NavBar.astro';
         </div>
       </div>
       <p class="aboutUsDescription">
-        Khimera kicked off its journey in 2012 as a freelance gig, crafting some graphic design projects for Vanessa's clients in Costa Rica and the U.S. Recently, it’s morphed into a family business! After 
+        Khimera comenzó su aventura en 2012 como un proyecto freelance, diseñando gráficos para los clientes de Vanessa en Costa Rica y Estados Unidos. ¡Recientemente, se ha convertido en un negocio familiar! Después de mudarse a Buenos Aires, Argentina,
         <span>
           <a href="https://www.linkedin.com/in/vanessabarzuna/" target="_blank" rel=" noreferrer" >
             Vanessa
           </a>
         </span> 
-        moved to Buenos Aires, Argentina, she teamed up with her husband 
+        unió fuerzas con su esposo 
         <span>
           <a href="https://www.linkedin.com/in/gonzalo-garcia-calvo/" target="_blank" rel=" noreferrer">
             Gonzalo.
           </a>
-        </span>Together, they’re not just expanding their services but also spreading their magic across the Americas.
+        </span>Juntos, no solo han ampliado sus servicios, sino que también están llevando su magia por todo América.
       </p>
     </section>
     <section class="videoSection" id="OurWork" data-name="navLinkField">
-      <h1 class="sectionTitle">OUR WORK</h1>
-      <p>Our portfolio is super versatile, and we deliver to the needs of a very diverse audience. Here’s a quick overview video of some of our projects, showcasing the variety and creativity we fulfill:</p>
+      <h1 class="sectionTitle">PORTAFOLIO</h1>
+      <p>Nuestro portafolio es súper versátil y se adapta a una audiencia muy diversa. En este video pueden ver rápidamente algunos de nuestros proyectos, mostrando la variedad y creatividad que ofrecemos:</p>
       <div class="videoContainer">
         <!-- <video 
           controls
@@ -93,15 +93,14 @@ import NavBar from '../components/NavBar.astro';
       </div>
     </section>
     <section class="servicesSection" id="OurServices" data-name="navLinkField">
-      <h1 class="sectionTitle">OUR SERVICES</h1>
-      <p>Our services cover a wide range from graphic design to web development.
-        Below, are some of the most popular services we provide more often:
+      <h1 class="sectionTitle">SERVICIOS</h1>
+      <p>Brindamos una amplia gama de servicios, desde diseño gráfico hasta desarrollo web. A continuación, mostramos algunos de los más populares:
       </p>
       <Services />
-      <h2>*Third Party Services Management</h2>
+      <h2>*Gestión de Servicios a Terceros</h2>
     </section>
     <section class="contactFormSection">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSegb8a5y6rvvVH3g2byjynnDc5GpZdsqZZOL4OVuK8a56nKJw/viewform?usp=sharing" target="_blank" rel=" noreferrer" class="formLink">Get your quote ASAP!</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfMpiPp8Wwg4d9xY0VcXgD2uH_C2TQEozpVtedHCWYVDY3_SA/viewform?usp=sharing" target="_blank" rel=" noreferrer" class="formLink">¡Solicitá PRONTO una cotización!</a>
     </section>
   </main>
   <footer id="Contact" data-name="navLinkField">
@@ -308,8 +307,7 @@ function toggleTheme() {
   /* const themeSwitch = document.getElementById('theme-toggle'); *//* theme-toggle-label */
   const themeSwitch = document.getElementById('theme-toggle-label');
   const userTheme = localStorage.getItem('theme');
-  /* const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches; */
-  //console.log("systemTheme: ", systemTheme)
+  //const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
   // Inicializa el tema al cargar
   const setTheme = (theme: string) => {
@@ -341,13 +339,12 @@ function toggleTheme() {
     console.log("click para setear theme")
   });
 }
-
-
-  document.addEventListener('astro:page-load', () => {
+console.log("recarga scripts")
+document.addEventListener('astro:page-load', () => {
   // Coloca aquí tu lógica para reejecutar scripts
-  toggleTheme();
+  toggleTheme()
   console.log('Página cargada nuevamente');
 });
 
 </script>
- -->
+-->

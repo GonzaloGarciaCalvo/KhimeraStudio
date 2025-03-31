@@ -1,0 +1,11 @@
+---
+import ServiceItem from './ServiceItem.astro'
+import {servicesDataEsp} from '../data/services.js'
+---
+<div class="servicesContainer" >
+  {
+    servicesDataEsp.map((item, idx) => (
+      <ServiceItem img={item} idx={idx} serviceDetails={item} />
+    ))
+  }
+</div>

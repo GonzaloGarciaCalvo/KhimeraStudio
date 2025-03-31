@@ -9,3 +9,17 @@ export default defineConfig({
     },
   },
 });
+
+/* 
+module.exports = {
+  // ...
+  compile: {
+    ts: {
+      compiler: 'typescript',
+      options: {
+        // opciones de compilación de TypeScript
+      },
+    },
+  },
+};
+*/

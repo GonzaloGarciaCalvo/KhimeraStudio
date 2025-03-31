@@ -1,0 +1,62 @@
+---
+import logo1 from "../assets/khimera-logo-1.webp"
+import Menu from "../assets/menu-hamburger.svg"
+const pathDir = Astro.url.pathname;
+console.log("path: ", pathDir);
+const path = pathDir === "/" ? "es" : "/"
+const pathDirName = pathDir === "/" ? "Es" : "En"
+---
+
+<header>
+  <div class="brandLogoContainer">
+    <img class="brandLogo1" src={logo1.src} alt="brand logo, khimera design studio">
+  </div>
+  <nav id="navBar" >
+    <div id="desktopMenu">
+      <a href="#Intro" class="linkFontSizeBig" data-name="navLink">INTRO</a>
+      <a href="#AboutUs" class="linkFontSizeBig" data-name="navLink">ABOUT US</a>
+      <a href="#OurWork" class="linkFontSizeBig" data-name="navLink">OUR WORK</a>
+      <a href="#OurServices" class="linkFontSizeBig" data-name="navLink">OUR SERVICES</a>
+      <a href="#Contact" class="linkFontSizeBig" data-name="navLink" >CONTACT</a>
+    <div>
+        <div class="theme-toggle-wrapper">
+          <input type="checkbox" class="theme-toggle-checkbox" id="chk" id="theme-toggle-input">
+          <label id="theme-toggle-label" for="chk"  data-astro-ignore>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="icon-tabler icon-tabler-sun" width="15px" height="15px" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="icon-tabler icon-tabler-moon" width="15" height="15" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+            </svg>
+            <div id="theme-toggle-ball">
+              <!-- <span class="sr-only">theme</span> -->
+            </div>
+          </label>
+        </div>
+
+        <div class="languageToggle">
+          <a href={path}>{pathDirName}</a>
+        </div>
+      </div>
+      
+      
+
+    </div>
+    <div id="mobileMenuContainer">
+      <img src={Menu.src} alt="mobile menu" id="hamburger">
+      <div id="mobileMenu" class="mobileMenu mobileMenuHidden" >
+        <a href="#"  class="linkFontSizeBig">HOME</a>
+        <a href="#AboutUs" class="linkFontSizeBig" >ABOUT US</a>
+        <a href="#OurWork" class="linkFontSizeBig" >OUR WORK</a>
+        <a href="#OurServices" class="linkFontSizeBig">OUR SERVICES</a>
+        <a href="#Contact" class="linkFontSizeBig" >
+          CONTACT
+        </a>
+      </div>
+    </div>
+  </nav>
+
+</header>

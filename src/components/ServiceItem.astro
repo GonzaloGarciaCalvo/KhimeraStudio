@@ -1,17 +1,17 @@
 ---
-const { img, idx, servicesDetails } = Astro.props
-import ChevronDown from '../assets/chevron-down.svg'
-
+const { idx, serviceDetails:data } = Astro.props
+/* import ChevronDown from '../assets/chevron-down.svg' */
+//console.log("serviceDetails: ", serviceDetails)
 ---
 
 <article class="iconContainer">
-  <img id={idx+'y'}   class={img?.class1} src={img?.w?.src} alt=`${img?.w?.alt || 'image'}`>
-  <img id={idx+'v'} class={img?.class2} src={img?.v?.src} alt=`${img?.v?.alt || 'image'}`>
-  <h2 class={`${"openDetails"+idx}`}>{img?.title}</h2>
+  <img id={idx+'y'}   class={data?.class1} src={data?.w?.src} alt=`${data?.w?.alt || 'image'}`>
+  <img id={idx+'v'} class={data?.class2} src={data?.v?.src} alt=`${data?.v?.alt || 'image'}`>
+  <h2 class={`${"openDetails"+idx}`}>{data?.title}</h2>
   <dialog id={"favDialog"+idx} class="favDialog" >
-    <h3>{servicesDetails.id}:</h3>
+    <h3>{data.title}:</h3>
     {
-      servicesDetails.data.map((item: string[]) => (
+      data.services.map((item: string[]) => (
         <p>{item}</p>
     ))}
     <button id={"closeDetails"+idx} class="closeDialog">Close</button>

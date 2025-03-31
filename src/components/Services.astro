@@ -1,6 +1,6 @@
 ---
 import ServiceItem from './ServiceItem.astro'
-import icon1 from '../assets/services/1-Branding.svg'
+/* import icon1 from '../assets/services/1-Branding.svg'
 import icon1v from '../assets/services/Branding-v.svg'
 import icon2 from '../assets/services/2-SmallFormat.svg'
 import icon2v from '../assets/services/SmallFormat-v.svg'
@@ -10,8 +10,8 @@ import icon4 from '../assets/services/4-Infographics.svg'
 import icon4v from '../assets/services/Infographics-v.svg'
 import icon5 from '../assets/services/5-WebDesign.svg'
 import icon5v from '../assets/services/WebDesign-v.svg'
-import icon6 from '../assets/services/6-ResponsiveWebDevelopment.svg'
-import icon6v from '../assets/services/ResponsiveWebDevelopment-v.svg'
+import icon6 from '../assets/services/6-WebDevelopment.svg'
+import icon6v from '../assets/services/WebDevelopment-v.svg'
 import icon7 from '../assets/services/7-WebApps.svg'
 import icon7v from '../assets/services/WebApps-v.svg'
 import icon8 from '../assets/services/8-SocialMedia.svg'
@@ -22,11 +22,11 @@ import icon10 from '../assets/services/10-VideoEditing.svg'
 import icon10v from '../assets/services/VideoEditing-v.svg'
 import icon11 from '../assets/services/11-CorporatePresentations.svg'
 import icon11v from '../assets/services/CorporatePresentations-v.svg'
-import icon12 from '../assets/services/12-Packaging.svg'
-import icon12v from '../assets/services/Packaging-v.svg'
-import {servicesDetails} from '../data/services.js'
+import icon12 from '../assets/services/12-VisualMerchandising.svg'
+import icon12v from '../assets/services/VisualMerchandising-v.svg' */
+import {servicesData} from '../data/services.js'
 
-const data = [
+/* const data = [
   {w:icon1, v:icon1v, class1:"icon1", class2:"icon1v", title:"Branding"}, 
   {w:icon2, v:icon2v, class1:"icon2", class2:"icon2v", title:"Small Format"},
   {w:icon3, v:icon3v, class1:"icon3", class2:"icon3v", title:"Big Format"}, 
@@ -39,12 +39,21 @@ const data = [
   {w:icon10, v:icon10v, class1:"icon10", class2:"icon10v", title:"Video Editing"},
   {w:icon11, v:icon11v, class1:"icon11", class2:"icon11v", title:"Corporate Presentations"}, 
   {w:icon12, v:icon12v, class1:"icon12", class2:"icon12v", title:"Visual Merchandising"},
-]
+] */
+
+
 ---
-  <div class="servicesContainer" >
+  <!-- <div class="servicesContainer" >
     {
       data.map((item, idx) => (
         <ServiceItem img={item} idx={idx} servicesDetails={servicesDetails[idx as keyof typeof servicesDetails]} />
+      ))
+    }
+  </div> -->
+  <div class="servicesContainer" >
+    {
+      servicesData.map((item, idx) => (
+        <ServiceItem img={item} idx={idx} serviceDetails={item} />
       ))
     }
   </div>
