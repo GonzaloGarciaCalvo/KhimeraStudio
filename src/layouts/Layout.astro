@@ -17,16 +17,16 @@ import { ClientRouter } from "astro:transitions";
 		<meta name="color-scheme" content="light dark"> 
 		<title>Khimera Studio</title>
 		<ClientRouter />
-		<!-- <script>
+		<script>
 			document.addEventListener('astro:page-load', () => {
-				// Coloca aquí tu lógica para reejecutar scripts
-				console.log('Página cargada nuevamente');
-				const theme = localStorage.getItem('theme') || 'light'; // Por defecto claro
-				if (theme === 'dark') {
-					document.documentElement.classList.add('dark');
+			  const savedTheme = localStorage.getItem('theme') || 'light';
+        /* const themeToggleCheckbox1= document.getElementById('chk'); */
+        const themeToggleCheckbox2 = document.getElementById('chk2') as HTMLInputElement;
+				if (themeToggleCheckbox2) {
+					themeToggleCheckbox2.checked = savedTheme === 'dark';
 				}
 			});
-		</script> -->
+		</script>
 	</head>
 	<body> 
 		
@@ -36,7 +36,6 @@ import { ClientRouter } from "astro:transitions";
 	</body>
 	<script defer>
 	document.addEventListener('astro:page-load', () => {
-
 
   function handleClick1() {
     const container = document.getElementById('container1');
@@ -146,7 +145,6 @@ import { ClientRouter } from "astro:transitions";
   //let isMenuOpen = false;
 	function handleDisplayMenu (isMenuOpen: boolean) {
 		isMenuOpen = isMenuOpen
-		console.log("isMenuOpen: ", isMenuOpen)
 		const menuButton = document.getElementById('hamburger');
 		menuButton?.addEventListener('click', () => {
 			const menu = document.getElementById('mobileMenu');
@@ -164,7 +162,8 @@ import { ClientRouter } from "astro:transitions";
 			}
 		})
 	
-		const nav = document.querySelector('#navBar') as HTMLElement;
+		/* const nav = document.querySelector('#navBar') as HTMLElement; */
+		const nav = document.querySelector('[data-name="navBar"]') as HTMLElement;
 		let navTop = nav.offsetTop;
 		let isFixed = false;
 	
@@ -192,8 +191,22 @@ import { ClientRouter } from "astro:transitions";
 				isFixed = false */
 			}
 		}
+
+		const nav2 = document.querySelector('#navBarMobile') as HTMLElement;
+		let navTop2 = nav2.offsetTop;
+		//let isFixed2 = false;
+	
+		function fixedNav2() {
+			if (window.scrollY >= navTop2) {    
+				nav2.classList.add('fixed');
+				isFixed = true
+			} else {
+				nav2.classList.remove('fixed');    
+			}
+		}
 	
 		window.addEventListener('scroll', fixedNav);
+		window.addEventListener('scroll', fixedNav2);
 	}
 
 // change color link on scroll acordin to section  //
@@ -241,45 +254,31 @@ import { ClientRouter } from "astro:transitions";
 		});
 	}
 	
-// Archivo theme-toggle.js
 function toggleTheme() {
+	console.log("toggleTheme")
   /* const themeSwitch = document.getElementById('theme-toggle'); *//* theme-toggle-label */
-  const themeSwitch = document.getElementById('theme-toggle-label');
+  const themeSwitch = document.getElementsByClassName('theme-toggle-label');
   const userTheme = localStorage.getItem('theme');
   /* const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches; */
-  //console.log("systemTheme: ", systemTheme)
   
-  // Inicializa el tema al cargar
   const setTheme = (theme: string) => {
-    document.documentElement.className = theme; // Añade la clase al html
+    document.documentElement.className = theme; 
     localStorage.setItem('theme', theme); 
   };
   
   if (userTheme) {
     setTheme(userTheme);
-    console.log("setea theme con user theme")
   }
-  // Lógica para cargar el tema preferido
-  /* if (userTheme) {
-    setTheme(userTheme);
-    console.log("setea theme con user theme")
-  } else {
-    setTheme(systemTheme ? 'dark' : 'light');
-    console.log("setea theme con system theme")
-  } */
-  
-  // Agrega el evento al botón del switch
-  themeSwitch?.addEventListener('click', (e) => {
-    /* e.stopPropagation() */
-    const currentTheme = document.documentElement.className;
-    console.log("currentTheme: ", currentTheme)
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    console.log("newTheme: ", newTheme)
-    setTheme(newTheme);
-    console.log("click para setear theme")
-  });
-}
 
+  Array.from(themeSwitch).forEach(
+		(themeSwitch) => {
+			themeSwitch?.addEventListener('click', (e) => {
+    const currentTheme = document.documentElement.className;
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+		})
+	})
+}
 </script>
 </html>
 

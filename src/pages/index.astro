@@ -10,7 +10,7 @@ import logoGif from "../assets/khimera-animated-logo.gif"
 import contactPhone from '../assets/contact-01.svg'
 import contactEmail from '../assets/contact-07.svg'
 import NavBar from '../components/NavBar.astro';
-
+import poster from '../assets/portada-video.webp'
 ---
 
 <Layout>
@@ -22,16 +22,16 @@ import NavBar from '../components/NavBar.astro';
         <p>/kʌɪˈmɪərə,kɪˈmərʌ/</p>
         <p>noun</p>
         <p>
-          1. a thing which is hoped for, but is illusory or impossible to achieve.
+          1. A thing which is hoped for, but is illusory or impossible to achieve. An utopia.
         </p>
         <p>
-          2. (in Greek mythology) a fire-breathing female monster with a lion's head, a goat's body, and a serpent's tail.
+          2. (In Greek mythology) a fire-breathing female monster with a lion's head, a goat's body, and a serpent's tail.
         </p>
         <p id="paragraph1">
           Our name comes from our passion for the art of creation, magic, and folklore.
         </p>
         <p id="paragraph2">
-          Today, as we continue to create and inspire, Khimera Studio remains a statement to the power of imagination, inviting everyone to join us on a journey where thoughts take shape and stories come to life.
+          Today, as we continue to create and inspire, Khimera Studio remains a statement to the power of imagination, inviting everyone to join us on a journey where ideas take shape and stories come to life.
         </p>
       </div>
     </section>
@@ -61,31 +61,24 @@ import NavBar from '../components/NavBar.astro';
         </div>
       </div>
       <p class="aboutUsDescription">
-        Khimera kicked off its journey in 2012 as a freelance gig, crafting some graphic design projects for Vanessa's clients in Costa Rica and the U.S. Recently, it’s morphed into a family business! After 
+        Khimera kicked off its journey in 2012 as a freelance gig, crafting some graphic design projects for Vanessa's clients in Costa Rica and the United States. Recently, it’s morphed into a family business! After 
         <span>
-          <a href="https://www.linkedin.com/in/vanessabarzuna/" target="_blank" rel=" noreferrer" >
+          <a href="https://www.linkedin.com/in/vanessabarzuna/" target="_blank" rel=" noreferrer" id="linkVane" >
             Vanessa
           </a>
         </span> 
         moved to Buenos Aires, Argentina, she teamed up with her husband 
         <span>
-          <a href="https://www.linkedin.com/in/gonzalo-garcia-calvo/" target="_blank" rel=" noreferrer">
-            Gonzalo.
-          </a>
-        </span>Together, they’re not just expanding their services but also spreading their magic across the Americas.
+          <a href="https://www.linkedin.com/in/gonzalo-garcia-calvo/" target="_blank" rel=" noreferrer" id="linkGon">
+            Gonzalo
+          </a></span>. Together, they’re not just expanding their services but also spreading their magic across the Americas.
       </p>
     </section>
     <section class="videoSection" id="OurWork" data-name="navLinkField">
       <h1 class="sectionTitle">OUR WORK</h1>
       <p>Our portfolio is super versatile, and we deliver to the needs of a very diverse audience. Here’s a quick overview video of some of our projects, showcasing the variety and creativity we fulfill:</p>
       <div class="videoContainer">
-        <!-- <video 
-          controls
-          preload="auto"
-          src={brandVideo}
-        >
-        </video> -->
-        <video controls>
+        <video controls poster={poster.src} preload="none">
           <source src={brandVideo} type="video/webm">
           <track src='/video.vtt' kind="captions" srclang="en" label="English">
         </video>
@@ -118,236 +111,4 @@ import NavBar from '../components/NavBar.astro';
     </div>    
   </footer>
 </Layout>
-<!-- <script defer>
-  // this script is for flip cards
-  let rotateCount1 = 1;
-  let rotateCount2 = 1;
-  let timeoutId1;
-  let timeoutId2;
 
-  function handleClick1() {
-    const container = document.getElementById('container1');
-    const front = document.getElementById('front1');
-    const back = document.getElementById('back1');
-    if (timeoutId1) {
-        clearTimeout(timeoutId1);
-    }
-    if (rotateCount1 %2 !== 0) {
-      setTimeout(() => {
-        front.classList.remove('customShadow')
-        back.classList.add('customShadow')
-      },300)
-    } else {
-      setTimeout(() => {
-        front.classList.add('customShadow')
-      },300)
-    }
-    container?.classList.add('rotate');
-    container?.style.setProperty('--rotate-count', rotateCount1++);
-  }
-  function handleClick2() {
-    const container = document.getElementById('container2');
-    const front = document.getElementById('front2');
-    const back = document.getElementById('back2');
-    if (timeoutId2) {
-        clearTimeout(timeoutId2);
-    }
-    if (rotateCount2 %2 !== 0) {
-      setTimeout(() => {
-        front.classList.remove('customShadow')
-        back.classList.add('customShadow')
-      },300)
-    } else {
-      setTimeout(() => {
-        front.classList.add('customShadow')
-      },300)
-    }
-    container?.classList.add('rotate');
-    container?.style.setProperty('--rotate-count', rotateCount2++);
-  }
-</script>
-<script>
-  document.querySelectorAll('.iconContainer').forEach((container) => {
-    const img1 = container.querySelector('img:nth-child(1)') as HTMLElement; 
-    const img2 = container.querySelector('img:nth-child(2)') as HTMLElement; 
-    if (img1 && img2) {
-        img1.addEventListener('touchstart', (event) => {
-          img1.style.display = 'none';
-          img2.style.display = 'block';
-        },  {passive: true});
-
-        container.addEventListener('touchend', () => {
-          img1.style.display = 'block';
-          img2.style.display = 'none';
-        });
-
-        img1.addEventListener('contextmenu', (event) => {
-          event.preventDefault();
-        });
-        img2.addEventListener('contextmenu', (event) => {
-          event.preventDefault();
-        });
-      } 
-  });
-
-
-  // dialog display  //
-  for (let i = 0; i <= 11; i++) {
-    const openButton = document.getElementById(`openDetails${i}`);
-    const openButtonAlternative = document.getElementsByClassName(`openDetails${i}`);
-    const cancelButton = document.getElementById(`closeDetails${i}`);
-    const favDialog = document.getElementById(`favDialog${i}`);
-  
-    openButton?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.showModal())
-    openButtonAlternative?.item(0)?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.showModal())
-    cancelButton?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.close())
-
-    openButton?.addEventListener("touchStart", () =>(favDialog as HTMLDialogElement)?.showModal());    
-    cancelButton?.addEventListener("touchStart", () =>(favDialog as HTMLDialogElement)?.close())
-  }
-</script>
-<script> // mobile menu display  //
-  let isMenuOpen = false;
-  const munuButton = document.getElementById('hamburger');
-
-  munuButton?.addEventListener('click', () => {
-    const menu = document.getElementById('mobileMenu');
-    /* const desktopMenu = document.getElementById('desktopMenu'); */
-    if (isMenuOpen) { 
-      /* menu?.classList.remove('open'); */
-      menu?.classList.add('mobileMenuHidden');
-      isMenuOpen = false
-      /* desktopMenu?.classList.remove('open'); */
-    } else {/* mobileMenuHidden    mobileMenuDisplayed */
-      menu?.classList.remove('mobileMenuHidden');
-      isMenuOpen = true
-      /* menu?.classList.add('mobileMenuDisplayed'); */
-      /* desktopMenu?.classList.add('open'); */
-    }
-  })
-
-  const nav = document.querySelector('#navBar') as HTMLElement;
-  let navTop = nav.offsetTop;
-  let isFixed = false;
-
-  function fixedNav() {
-    if (window.scrollY >= navTop) {    
-      nav.classList.add('fixed');
-      /* if (!isFixed) {
-        console.log("entro en isFIXED")
-        for (let el of elementos) {
-          el.classList.remove("linkFontSizeBig");
-          el.classList.add("linkFontSizeSmall");
-        }
-      } */
-      isFixed = true
-    } else {
-      nav.classList.remove('fixed');    
-      /* if (isFixed) {
-        console.log("entro en isFIXED")
-        for (let el of elementos) {
-
-          el.classList.remove("linkFontSizeSmall");
-          el.classList.add("linkFontSizeBig");
-        }
-      }
-      isFixed = false */
-    }
-  }
-
-  window.addEventListener('scroll', fixedNav);
-
-// change color link on scroll acordin to section  //
-  const links = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('[data-name="navLinkField"]');
-
-const observerGeneral = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        links.forEach(link => {
-          link.classList.toggle(
-            'active-link',
-            link.getAttribute('href') === `#${entry.target.id}`
-          );
-        });
-      }
-    });
-  }, 
-  { threshold: 0.55 }
-);
-
-const observerEspecifico = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        links.forEach(link => {
-          link.classList.toggle(
-            'active-link',
-            link.getAttribute('href') === `#${entry.target.id}`
-          );
-        });
-      }
-    });
-  }, 
-  { threshold: 0.2 }
-);
-
-sections.forEach(section => {
-  if (section.id === 'OurServices') {
-    observerEspecifico.observe(section);
-  } else {
-    observerGeneral.observe(section);
-  }
-});
-
-
-// Archivo theme-toggle.js
-function toggleTheme() {
-  
-  /* const themeSwitch = document.getElementById('theme-toggle'); *//* theme-toggle-label */
-  const themeSwitch = document.getElementById('theme-toggle-label');
-  const userTheme = localStorage.getItem('theme');
-  /* const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches; */
-  //console.log("systemTheme: ", systemTheme)
-  
-  // Inicializa el tema al cargar
-  const setTheme = (theme: string) => {
-    document.documentElement.className = theme; // Añade la clase al html
-    localStorage.setItem('theme', theme); 
-  };
-  
-  if (userTheme) {
-    setTheme(userTheme);
-    console.log("setea theme con user theme")
-  }
-  // Lógica para cargar el tema preferido
-  /* if (userTheme) {
-    setTheme(userTheme);
-    console.log("setea theme con user theme")
-  } else {
-    setTheme(systemTheme ? 'dark' : 'light');
-    console.log("setea theme con system theme")
-  } */
-  
-  // Agrega el evento al botón del switch
-  themeSwitch?.addEventListener('click', (e) => {
-    /* e.stopPropagation() */
-    const currentTheme = document.documentElement.className;
-    console.log("currentTheme: ", currentTheme)
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    console.log("newTheme: ", newTheme)
-    setTheme(newTheme);
-    console.log("click para setear theme")
-  });
-}
-
-
-  document.addEventListener('astro:page-load', () => {
-  // Coloca aquí tu lógica para reejecutar scripts
-  toggleTheme();
-  console.log('Página cargada nuevamente');
-});
-
-</script>
- -->

@@ -4,12 +4,13 @@ import GF from '../assets/bio-card5.webp'
 import GB from '../assets/bio-card7.webp'
 import VF from '../assets/bio-card6.webp'
 import VB from '../assets/bio-card8.webp'
-import brandVideo from '../assets/khimera-portfolio.webm'
+import brandVideo from '../assets/khimera-portfolio-esp.webm'
 import Services from '../components/ServicesEsp.astro';
 import logoGif from "../assets/khimera-animated-logo.gif"
 import contactPhone from '../assets/contact-01.svg'
 import contactEmail from '../assets/contact-07.svg'
 import NavBar from '../components/NavBar.astro';
+import poster from '../assets/portada-video.webp'
 /* import videoData from '../data/video.vtt' */
 ---
 
@@ -64,28 +65,20 @@ import NavBar from '../components/NavBar.astro';
         Khimera comenzó su aventura en 2012 como un proyecto freelance, diseñando gráficos para los clientes de Vanessa en Costa Rica y Estados Unidos. ¡Recientemente, se ha convertido en un negocio familiar! Después de mudarse a Buenos Aires, Argentina,
         <span>
           <a href="https://www.linkedin.com/in/vanessabarzuna/" target="_blank" rel=" noreferrer" >
-            Vanessa
+          Vanessa
           </a>
-        </span> 
-        unió fuerzas con su esposo 
+        </span> unió fuerzas con su esposo 
         <span>
           <a href="https://www.linkedin.com/in/gonzalo-garcia-calvo/" target="_blank" rel=" noreferrer">
-            Gonzalo.
-          </a>
-        </span>Juntos, no solo han ampliado sus servicios, sino que también están llevando su magia por todo América.
+          Gonzalo
+          </a></span>. Juntos, no solo han ampliado sus servicios, sino que también están llevando su magia por todo América.
       </p>
     </section>
     <section class="videoSection" id="OurWork" data-name="navLinkField">
       <h1 class="sectionTitle">PORTAFOLIO</h1>
       <p>Nuestro portafolio es súper versátil y se adapta a una audiencia muy diversa. En este video pueden ver rápidamente algunos de nuestros proyectos, mostrando la variedad y creatividad que ofrecemos:</p>
       <div class="videoContainer">
-        <!-- <video 
-          controls
-          preload="auto"
-          src={brandVideo}
-        >
-        </video> -->
-        <video controls>
+        <video controls poster={poster.src} preload="none">
           <source src={brandVideo} type="video/webm">
           <track src='/video.vtt' kind="captions" srclang="en" label="English">
         </video>
@@ -117,234 +110,3 @@ import NavBar from '../components/NavBar.astro';
     </div>    
   </footer>
 </Layout>
-<!-- <script defer>
-  // this script is for flip cards
-  let rotateCount1 = 1;
-  let rotateCount2 = 1;
-  let timeoutId1;
-  let timeoutId2;
-
-  function handleClick1() {
-    const container = document.getElementById('container1');
-    const front = document.getElementById('front1');
-    const back = document.getElementById('back1');
-    if (timeoutId1) {
-        clearTimeout(timeoutId1);
-    }
-    if (rotateCount1 %2 !== 0) {
-      setTimeout(() => {
-        front.classList.remove('customShadow')
-        back.classList.add('customShadow')
-      },300)
-    } else {
-      setTimeout(() => {
-        front.classList.add('customShadow')
-      },300)
-    }
-    container?.classList.add('rotate');
-    container?.style.setProperty('--rotate-count', rotateCount1++);
-  }
-  function handleClick2() {
-    const container = document.getElementById('container2');
-    const front = document.getElementById('front2');
-    const back = document.getElementById('back2');
-    if (timeoutId2) {
-        clearTimeout(timeoutId2);
-    }
-    if (rotateCount2 %2 !== 0) {
-      setTimeout(() => {
-        front.classList.remove('customShadow')
-        back.classList.add('customShadow')
-      },300)
-    } else {
-      setTimeout(() => {
-        front.classList.add('customShadow')
-      },300)
-    }
-    container?.classList.add('rotate');
-    container?.style.setProperty('--rotate-count', rotateCount2++);
-  }
-</script>
-<script>
-  document.querySelectorAll('.iconContainer').forEach((container) => {
-    const img1 = container.querySelector('img:nth-child(1)') as HTMLElement; 
-    const img2 = container.querySelector('img:nth-child(2)') as HTMLElement; 
-    if (img1 && img2) {
-        img1.addEventListener('touchstart', (event) => {
-          img1.style.display = 'none';
-          img2.style.display = 'block';
-        },  {passive: true});
-
-        container.addEventListener('touchend', () => {
-          img1.style.display = 'block';
-          img2.style.display = 'none';
-        });
-
-        img1.addEventListener('contextmenu', (event) => {
-          event.preventDefault();
-        });
-        img2.addEventListener('contextmenu', (event) => {
-          event.preventDefault();
-        });
-      } 
-  });
-
-
-  // dialog display  //
-  for (let i = 0; i <= 11; i++) {
-    const openButton = document.getElementById(`openDetails${i}`);
-    const openButtonAlternative = document.getElementsByClassName(`openDetails${i}`);
-    const cancelButton = document.getElementById(`closeDetails${i}`);
-    const favDialog = document.getElementById(`favDialog${i}`);
-  
-    openButton?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.showModal())
-    openButtonAlternative?.item(0)?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.showModal())
-    cancelButton?.addEventListener("click", () =>(favDialog as HTMLDialogElement)?.close())
-
-    openButton?.addEventListener("touchStart", () =>(favDialog as HTMLDialogElement)?.showModal());    
-    cancelButton?.addEventListener("touchStart", () =>(favDialog as HTMLDialogElement)?.close())
-  }
-</script>
-<script> // mobile menu display  //
-  let isMenuOpen = false;
-  const munuButton = document.getElementById('hamburger');
-
-  munuButton?.addEventListener('click', () => {
-    const menu = document.getElementById('mobileMenu');
-    /* const desktopMenu = document.getElementById('desktopMenu'); */
-    if (isMenuOpen) { 
-      /* menu?.classList.remove('open'); */
-      menu?.classList.add('mobileMenuHidden');
-      isMenuOpen = false
-      /* desktopMenu?.classList.remove('open'); */
-    } else {/* mobileMenuHidden    mobileMenuDisplayed */
-      menu?.classList.remove('mobileMenuHidden');
-      isMenuOpen = true
-      /* menu?.classList.add('mobileMenuDisplayed'); */
-      /* desktopMenu?.classList.add('open'); */
-    }
-  })
-
-  const nav = document.querySelector('#navBar') as HTMLElement;
-  let navTop = nav.offsetTop;
-  let isFixed = false;
-
-  function fixedNav() {
-    if (window.scrollY >= navTop) {    
-      nav.classList.add('fixed');
-      /* if (!isFixed) {
-        console.log("entro en isFIXED")
-        for (let el of elementos) {
-          el.classList.remove("linkFontSizeBig");
-          el.classList.add("linkFontSizeSmall");
-        }
-      } */
-      isFixed = true
-    } else {
-      nav.classList.remove('fixed');    
-      /* if (isFixed) {
-        console.log("entro en isFIXED")
-        for (let el of elementos) {
-
-          el.classList.remove("linkFontSizeSmall");
-          el.classList.add("linkFontSizeBig");
-        }
-      }
-      isFixed = false */
-    }
-  }
-
-  window.addEventListener('scroll', fixedNav);
-
-// change color link on scroll acordin to section  //
-  const links = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('[data-name="navLinkField"]');
-
-const observerGeneral = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        links.forEach(link => {
-          link.classList.toggle(
-            'active-link',
-            link.getAttribute('href') === `#${entry.target.id}`
-          );
-        });
-      }
-    });
-  }, 
-  { threshold: 0.55 }
-);
-
-const observerEspecifico = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        links.forEach(link => {
-          link.classList.toggle(
-            'active-link',
-            link.getAttribute('href') === `#${entry.target.id}`
-          );
-        });
-      }
-    });
-  }, 
-  { threshold: 0.2 }
-);
-
-sections.forEach(section => {
-  if (section.id === 'OurServices') {
-    observerEspecifico.observe(section);
-  } else {
-    observerGeneral.observe(section);
-  }
-});
-
-
-// Archivo theme-toggle.js
-function toggleTheme() {
-  
-  /* const themeSwitch = document.getElementById('theme-toggle'); *//* theme-toggle-label */
-  const themeSwitch = document.getElementById('theme-toggle-label');
-  const userTheme = localStorage.getItem('theme');
-  //const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  // Inicializa el tema al cargar
-  const setTheme = (theme: string) => {
-    document.documentElement.className = theme; // Añade la clase al html
-    localStorage.setItem('theme', theme); 
-  };
-  
-  if (userTheme) {
-    setTheme(userTheme);
-    console.log("setea theme con user theme")
-  }
-  // Lógica para cargar el tema preferido
-  /* if (userTheme) {
-    setTheme(userTheme);
-    console.log("setea theme con user theme")
-  } else {
-    setTheme(systemTheme ? 'dark' : 'light');
-    console.log("setea theme con system theme")
-  } */
-  
-  // Agrega el evento al botón del switch
-  themeSwitch?.addEventListener('click', (e) => {
-    /* e.stopPropagation() */
-    const currentTheme = document.documentElement.className;
-    console.log("currentTheme: ", currentTheme)
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    console.log("newTheme: ", newTheme)
-    setTheme(newTheme);
-    console.log("click para setear theme")
-  });
-}
-console.log("recarga scripts")
-document.addEventListener('astro:page-load', () => {
-  // Coloca aquí tu lógica para reejecutar scripts
-  toggleTheme()
-  console.log('Página cargada nuevamente');
-});
-
-</script>
--->

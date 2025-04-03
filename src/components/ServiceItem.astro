@@ -1,7 +1,7 @@
 ---
 const { idx, serviceDetails:data } = Astro.props
-/* import ChevronDown from '../assets/chevron-down.svg' */
-//console.log("serviceDetails: ", serviceDetails)
+const pathDir = Astro.url.pathname;
+const buttonText = pathDir === "/" ? "CLOSE" : "CERRAR"
 ---
 
 <article class="iconContainer">
@@ -14,7 +14,7 @@ const { idx, serviceDetails:data } = Astro.props
       data.services.map((item: string[]) => (
         <p>{item}</p>
     ))}
-    <button id={"closeDetails"+idx} class="closeDialog">Close</button>
+    <button id={"closeDetails"+idx} class="closeDialog">{buttonText}</button>
   </dialog>
   <menu>
     <svg 

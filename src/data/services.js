@@ -198,7 +198,7 @@ export const servicesDataEsp = [
 		v: icon2v,
 		class1: "icon2",
 		class2: "icon2v",
-		title: "Formato Pequeño:",
+		title: "Pequeño Formato:",
 		services:["Papelería","Volantes/Folletos","Postales"]
 	},
 	{
@@ -206,7 +206,7 @@ export const servicesDataEsp = [
 		v: icon3v,
 		class1: "icon3",
 		class2: "icon3v",
-		title: "Formato Grande",
+		title: "Gran Formato",
 		services:["Banners", "Roller Ups","Fondos/Backdrops","Wall Art"]
 	},
 	{
