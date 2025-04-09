@@ -5,7 +5,12 @@ import {servicesDataEsp} from '../data/services.js'
 <div class="servicesContainer" >
   {
     servicesDataEsp.map((item, idx) => (
-      <ServiceItem img={item} idx={idx} serviceDetails={item} />
+        <ServiceItem
+          img={item}
+          idx={idx}
+          serviceDetails={item}
+          noPrice = "Solicitar más detalles"
+        />
     ))
   }
 </div>

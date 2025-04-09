@@ -45,17 +45,6 @@ html.light {
   --accentTextColor:var(--brandViolete)
 }
 
-@font-face {
-  font-family: 'Lato-Light';
-  src: url('/fonts/Lato-Light.woff2') format('woff2');
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Lato-Bold';
-  src: url('/fonts/Lato-Bold.woff2') format('woff2');
-  font-display: swap;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -354,7 +343,6 @@ main {
   color: var(--accentTextColor);
   font-family: Lato-Bold, sans-serif;
 }
-
 .sceneContainer {
   width: 100%;
   height: auto;
@@ -365,14 +353,12 @@ main {
   padding-top: 0rem;
   padding-bottom: 4rem;
 }
-
 .scene {
   width: 20%;
   height: auto;
   min-width: 16rem;
   perspective: 1000px; 
 }
-
 .container {
   width: 100%;
   height: auto;
@@ -381,7 +367,6 @@ main {
   transform-style: preserve-3d; 
   transition: transform 2s; 
 }
-
 .front, .back {
   position: absolute; 
   width: 100%;
@@ -393,7 +378,6 @@ main {
   cursor: pointer; 
   object-fit: contain;
 }
-
 .front {
   & img {
     width:100%;
@@ -402,7 +386,6 @@ main {
     border-radius: 14px;
   }
 }
-
 .back {
   transform: rotateY(180deg);
   & img {
@@ -412,15 +395,12 @@ main {
     border-radius: 14px;
   }
 }
-
 .rotate {
   transform: rotateY(calc(180deg * var(--rotate-count)));
 }
-
 .customShadow {
   box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.65);
 }
-
 .aboutUsDescription {
   padding-inline: 15%;
   padding-bottom: 3rem;
@@ -587,6 +567,11 @@ dialog {
   color: var(--brandColor);
   & h3 {
     padding-bottom: 0.5rem;
+  };
+  & h4 {
+   padding-bottom: 0.5rem;
+   font-style: italic;
+   font-size: 0.8rem
   };
   & p {
     padding-inline: 0.5rem;

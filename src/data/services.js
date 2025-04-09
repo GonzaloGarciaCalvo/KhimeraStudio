@@ -1,64 +1,3 @@
-/* export const servicesDetails = {
-	0: {
-			id: "Branding",
-			data: ["Logo Design", "Visual Indentity", "Brand Book"],
-	},
-
-	1: {
-			id: "Small Format",
-			data: ["Stationary", "Flyers/Brochures", "Post Cards"],
-	},
-
-	2: {
-			id: "Big Format",
-			data: ["Banners", "Roller Ups", "Backdrops", "Wall Art"],
-	},
-
-	3: {
-			id: "Infographics",
-			data: ["Charts and tables", "Iconography", "Animation"],
-	},
-
-	4: {
-			id: "Web Design",
-			data: ["Layouts", "Mockups", "Buttons", "Image/video editing"],
-	},
-
-	5: {
-			id: "Web development",
-			data: ["Front End", "Back End", "Responsive"],
-	},
-
-	6: {
-			id: "Web Apps",
-			data: ["Design", "Functionality"],
-	},
-
-	7: {
-			id: "Social Media",
-			data: ["Design", "Copyright*", "Community Manager*"],
-	},
-
-	8: {
-			id: "Photo editing",
-			data: ["Rendering", "Photomontage", "Retouching", "AI"],
-	},
-
-	9: {
-			id: "Video Editing",
-			data: ["Basic Animations", "Audio Effects", "Final Cut"],
-	},
-
-	10: {
-			id: "Corporate presentations",
-			data: ["Brainstorming", "Plans/Pitchs/Reports", "Credentials"],
-	},
-
-	11: {
-			id: "Visual Merchandising",
-			data: ["Packaging", "Display Design", "Furniture design", "E-Commerce*"],
-	},
-} */
 	import icon1 from '../assets/services/1-Branding.svg'
 	import icon1v from '../assets/services/Branding-v.svg'
 	import icon2 from '../assets/services/2-SmallFormat.svg'
@@ -92,6 +31,7 @@ export const servicesData = [
 		class2: "icon1v",
 		title: "Branding",
 		services: ["Logo Design", "Visual Indentity", "Brand Book"],
+		price:250
 	},
 	{
 		w: icon2,
@@ -99,7 +39,8 @@ export const servicesData = [
 		class1: "icon2",
 		class2: "icon2v",
 		title: "Small Format",
-		services:["Stationary", "Flyers/Brochures", "Post Cards"]
+		services:["Stationary", "Flyers/Brochures", "Post Cards"],
+		price:60
 	},
 	{
 		w: icon3,
@@ -107,7 +48,8 @@ export const servicesData = [
 		class1: "icon3",
 		class2: "icon3v",
 		title: "Big Format",
-		services: ["Banners", "Roller Ups", "Backdrops", "Wall Art"]
+		services: ["Banners", "Roller Ups", "Backdrops", "Wall Art"],
+		price:80
 	},
 	{
 		w: icon4,
@@ -115,7 +57,8 @@ export const servicesData = [
 		class1: "icon4",
 		class2: "icon4v",
 		title: "Infographics",
-		services:["Charts and tables", "Iconography", "Animation"]
+		services:["Charts and tables", "Iconography", "Animation"],
+		price:180
 	},
 	{
 		w: icon5,
@@ -123,7 +66,8 @@ export const servicesData = [
 		class1: "icon5",
 		class2: "icon5v",
 		title: "Web Design",
-		services: ["Layouts", "Mockups", "Buttons", "Image/video editing"]
+		services: ["Layouts", "Mockups", "Buttons", "Image/video editing"],
+		price:200
 	},
 	{
 		w: icon6,
@@ -131,7 +75,8 @@ export const servicesData = [
 		class1: "icon6",
 		class2: "icon6v",
 		title: "Web Development",
-		services:["Front End", "Back End", "Responsive"]
+		services:["Front End", "Back End", "Responsive"],
+		price:300
 	},
 	{
 		w: icon7, 
@@ -139,7 +84,8 @@ export const servicesData = [
 		class1: "icon7", 
 		class2: "icon7v", 
 		title: "Web Apps",
-		services: ["Design", "Functionality"]
+		services: ["Design", "Functionality"],
+		price:800
 	},
 	{
 		w: icon8,
@@ -147,7 +93,8 @@ export const servicesData = [
 		class1: "icon8",
 		class2: "icon8v",
 		title: "Social Media",
-		services:["Design", "Copyright*", "Community Manager*"]
+		services:["Design", "Copyright*", "Community Manager*"],
+		price:""
 	},
 	{
 		w: icon9,
@@ -155,7 +102,8 @@ export const servicesData = [
 		class1: "icon9",
 		class2: "icon9v",
 		title: "Photo Editing",
-		services:["Rendering", "Photomontage", "Retouching", "AI"]
+		services:["Rendering", "Photomontage", "Retouching", "AI"],
+		price:40
 	},
 	{
 		w: icon10,
@@ -163,7 +111,8 @@ export const servicesData = [
 		class1: "icon10",
 		class2: "icon10v",
 		title: "Video Editing",
-		services:["Basic Animations", "Audio Effects", "Final Cut"]
+		services:["Basic Animations", "Audio Effects", "Final Cut"],
+		price:""
 	},
 	{
 		w: icon11,
@@ -171,7 +120,8 @@ export const servicesData = [
 		class1: "icon11",
 		class2: "icon11v",
 		title: "Corporate Presentations",
-		services:["Brainstorming", "Plans/Pitchs/Reports", "Credentials"]
+		services:["Brainstorming", "Plans/Pitchs/Reports", "Credentials"],
+		price:160
 	},
 	{
 		w: icon12,
@@ -179,7 +129,8 @@ export const servicesData = [
 		class1: "icon12",
 		class2: "icon12v",
 		title: "Visual Merchandising",
-		services:["Packaging", "Display Design", "Furniture design", "E-Commerce*"]
+		services:["Packaging", "Display Design", "Furniture design", "E-Commerce*"],
+		price:120
 	},
 ];
 
@@ -191,7 +142,8 @@ export const servicesDataEsp = [
 		class2: "icon1v", 
 		title: "Branding",
 		services: ["Diseño de logotipo", "Identidad visual","Manual de marca"
-			]
+			],
+			price:250
 	},
 	{
 		w: icon2,
@@ -199,7 +151,8 @@ export const servicesDataEsp = [
 		class1: "icon2",
 		class2: "icon2v",
 		title: "Pequeño Formato:",
-		services:["Papelería","Volantes/Folletos","Postales"]
+		services:["Papelería","Volantes/Folletos","Postales"],
+		price:60
 	},
 	{
 		w: icon3,
@@ -207,7 +160,8 @@ export const servicesDataEsp = [
 		class1: "icon3",
 		class2: "icon3v",
 		title: "Gran Formato",
-		services:["Banners", "Roller Ups","Fondos/Backdrops","Wall Art"]
+		services:["Banners", "Roller Ups","Fondos/Backdrops","Wall Art"],
+		price:80
 	},
 	{
 		w: icon4,
@@ -215,7 +169,8 @@ export const servicesDataEsp = [
 		class1: "icon4",
 		class2: "icon4v",
 		title: "Infografías",
-		services:["Gráficos y tables", "Iconografía","Animación"]
+		services:["Gráficos y tables", "Iconografía","Animación"],
+		price:180
 	},
 	{
 		w: icon5,
@@ -223,7 +178,8 @@ export const servicesDataEsp = [
 		class1: "icon5",
 		class2: "icon5v",
 		title: "Diseño Web",
-		services:["Diseño de pagina", "Mockups","Botones","Edición de imágenes y videos"]
+		services:["Diseño de pagina", "Mockups","Botones","Edición de imágenes y videos"],
+		price:200
 	},
 	{
 		w: icon6,
@@ -231,7 +187,8 @@ export const servicesDataEsp = [
 		class1: "icon6",
 		class2: "icon6v",
 		title: "Desarrollo Web",
-		services:["Front End", "Back End", "Diseño responsive"]
+		services:["Front End", "Back End", "Diseño responsive"],
+		price:300
 	},
 	{
 		w: icon7,
@@ -239,7 +196,8 @@ export const servicesDataEsp = [
 		class1: "icon7",
 		class2: "icon7v",
 		title: "Aplicaciones Web",
-		services:["Diseño", "Funcionalidad"]
+		services:["Diseño", "Funcionalidad"],
+		price:800
 	},
 	{
 		w: icon8,
@@ -247,7 +205,8 @@ export const servicesDataEsp = [
 		class1: "icon8",
 		class2: "icon8v",
 		title: "Redes Sociales",
-		services:["Diseño", "Redacción de contenido*", "Community Manager*"]
+		services:["Diseño", "Redacción de contenido*", "Community Manager*"],
+		price:""
 	},
 	{
 		w: icon9,
@@ -255,7 +214,8 @@ export const servicesDataEsp = [
 		class1: "icon9",
 		class2: "icon9v",
 		title: "Edición de Fotografía",
-		services:["Renderización", "Fotomontaje","Retoque","Inteligencia Artificial"]
+		services:["Renderización", "Fotomontaje","Retoque","Inteligencia Artificial"],
+		price:40
 	},
 	{
 		w: icon10,
@@ -263,7 +223,8 @@ export const servicesDataEsp = [
 		class1: "icon10",
 		class2: "icon10v",
 		title: "Edición de Video",
-		services:["Animaciones básicas", "Efectos de audio", "Edición final"]
+		services:["Animaciones básicas", "Efectos de audio", "Edición final"],
+		price:""
 	},
 	{
 		w: icon11,
@@ -271,7 +232,8 @@ export const servicesDataEsp = [
 		class1: "icon11",
 		class2: "icon11v",
 		title: "Presentaciones Corporativas",
-		services:["Luvia de ideas","Planes/Pitchs/Reportes","Credenciales"]
+		services:["Luvia de ideas","Planes/Pitchs/Reportes","Credenciales"],
+		price:160
 	},
 	{
 		w: icon12,
@@ -279,6 +241,7 @@ export const servicesDataEsp = [
 		class1: "icon12",
 		class2: "icon12v",
 		title: "Visual Merchandising",
-		services:["Pachagin","Diseño de exhibidores","Diseño de mobiliario", "E-Commerce"]
+		services:["Pachagin","Diseño de exhibidores","Diseño de mobiliario", "E-Commerce"],
+		price:120
 	},
 ];

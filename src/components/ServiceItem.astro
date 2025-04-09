@@ -1,15 +1,22 @@
 ---
-const { idx, serviceDetails:data } = Astro.props
+const { idx, serviceDetails:data, noPrice } = Astro.props
 const pathDir = Astro.url.pathname;
 const buttonText = pathDir === "/" ? "CLOSE" : "CERRAR"
+let price 
+if (pathDir === "/") {
+  price = data.price ? `from USD ${data.price}` : noPrice;
+} else if (pathDir === "/es") {
+  price = data.price ? `desde USD ${data.price}` : noPrice;
+}
 ---
 
-<article class="iconContainer">
+<article class="iconContainer" >
   <img id={idx+'y'}   class={data?.class1} src={data?.w?.src} alt=`${data?.w?.alt || 'image'}`>
   <img id={idx+'v'} class={data?.class2} src={data?.v?.src} alt=`${data?.v?.alt || 'image'}`>
   <h2 class={`${"openDetails"+idx}`}>{data?.title}</h2>
   <dialog id={"favDialog"+idx} class="favDialog" >
     <h3>{data.title}:</h3>
+    <h4>{price}</h4>
     {
       data.services.map((item: string[]) => (
         <p>{item}</p>
