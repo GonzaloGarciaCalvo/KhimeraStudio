@@ -2,14 +2,11 @@
 import logo1 from "../assets/khimera-logo-1.webp"
 import logo2 from "../assets/khimera-logo-2.webp"
 import Menu from "../assets/menu-hamburger.svg"
-console.log("--------------------------------------------------------")
-const pathDir = Astro.url.pathname;
-console.log("pathDir: ", pathDir);
 
+const pathDir = Astro.url.pathname;
 const path = pathDir === "/" ? "/es" : "/"
-console.log("path: ", path);
 const pathDirName = pathDir === "/" ? "Es" : "En"
-console.log("pathDirName: ", pathDirName);
+
 const link1 = pathDir === "/" ? "INTRO" : "INTRO"
 const link2 = pathDir === "/" ? "ABOUT US" : "NOSOTROS"
 const link3 = pathDir === "/" ? "OUR WORK" : "PORTAFOLIO"
@@ -101,7 +98,6 @@ import { fade, slide } from 'astro:transitions';
 
 <script>
   document.addEventListener('astro:page-load', () => {
-console.log("entro en script")
 const switchContainer = document.createElement('div');
 switchContainer.className = 'theme-toggle-wrapper toggleDesktop';
 
@@ -133,8 +129,6 @@ const link = document.createElement('a');
 const pathUrl = window.location.pathname;
 const pathDirName2 = pathUrl.split('/').pop();
 const path22 = pathUrl === "/" ? "es" : "/"
-console.log("pathUrl: ", pathUrl)
-console.log("pathDirName2: ", pathDirName2)
 const pathDirName = pathUrl === "/" ? "Es" : "En"
 link.href = path22;
 link.innerText = pathDirName;
@@ -145,7 +139,6 @@ switchContainer.appendChild(themeToggleCheckbox);
 switchContainer.appendChild(themeToggleLabel);
 
 const navBar = document.querySelector('.switchsDesktopBox');
-console.log("navBar: ", navBar)
 navBar?.appendChild(switchContainer);
 navBar?.appendChild(languageToggle);
 const savedTheme = localStorage.getItem('theme') || 'light';

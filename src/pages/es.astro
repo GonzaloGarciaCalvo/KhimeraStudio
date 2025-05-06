@@ -10,7 +10,8 @@ import logoGif from "../assets/khimera-animated-logo.gif"
 import contactPhone from '../assets/contact-01.svg'
 import contactEmail from '../assets/contact-07.svg'
 import NavBar from '../components/NavBar.astro';
-import poster from '../assets/portada-video.webp'
+import poster from '../assets/portada-video.webp';
+import linkedinIcon from '../assets/icono-linkedin-negativo.svg';
 /* import videoData from '../data/video.vtt' */
 ---
 
@@ -106,6 +107,12 @@ import poster from '../assets/portada-video.webp'
       <div>
         <img src={contactPhone.src} alt="icono de telefono" loading="lazy">
         <p>+54 9 11 50112479</p>
+      </div>
+      <div>
+        <a href="https://www.linkedin.com/company/khimera-design-studio" target="_blank" rel=" noreferrer" class="linkedinLink">
+          <img src={linkedinIcon.src} alt="link a perfil de Linkedin" loading="lazy">
+          <p>Seguinos y obtén más ideas</p>
+        </a>
       </div>
     </div>    
   </footer>

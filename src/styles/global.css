@@ -662,6 +662,18 @@ footer {
       line-height: 1.125rem;
       transform: translateY(0.05rem);
       padding-left: 0.5rem;
+    };
+    & a {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+      & :visited {
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 }
