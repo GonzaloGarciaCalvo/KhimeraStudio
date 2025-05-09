@@ -1,17 +1,20 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+
+const { description, keywords, lang } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Khimera Studio, disign studio ">
-    <meta name="keywords" content="Khimera Studio, design studio, web design, web development, web apps, ">
+		<meta name="description" content={description}>
+    <meta name="keywords" content={keywords}>
+		<!-- <meta name="keywords" content="Khimera Studio, design studio, web design, web development, web apps, "> -->
 		<meta name="theme-color" content="#003366" />
     <meta name="apple-mobile-web-app-status-bar-style" content="#003366" />
 		<meta name="color-scheme" content="light dark"> 
@@ -20,7 +23,6 @@ import { ClientRouter } from "astro:transitions";
 		<script>
 			document.addEventListener('astro:page-load', () => {
 			  const savedTheme = localStorage.getItem('theme') || 'light';
-        /* const themeToggleCheckbox1= document.getElementById('chk'); */
         const themeToggleCheckbox2 = document.getElementById('chk2') as HTMLInputElement;
 				if (themeToggleCheckbox2) {
 					themeToggleCheckbox2.checked = savedTheme === 'dark';
@@ -151,27 +153,20 @@ import { ClientRouter } from "astro:transitions";
 		let isMenuOpen = false;
 		handleDisplayMenu(isMenuOpen) 
   });
-  //let isMenuOpen = false;
 	function handleDisplayMenu (isMenuOpen: boolean) {
 		isMenuOpen = isMenuOpen
 		const menuButton = document.getElementById('hamburger');
 		menuButton?.addEventListener('click', () => {
 			const menu = document.getElementById('mobileMenu');
-			/* const desktopMenu = document.getElementById('desktopMenu'); */
 			if (isMenuOpen) { 
-				/* menu?.classList.remove('open'); */
 				menu?.classList.add('mobileMenuHidden');
 				isMenuOpen = false
-				/* desktopMenu?.classList.remove('open'); */
-			} else {/* mobileMenuHidden    mobileMenuDisplayed */
+			} else {
 				menu?.classList.remove('mobileMenuHidden');
 				isMenuOpen = true
-				/* menu?.classList.add('mobileMenuDisplayed'); */
-				/* desktopMenu?.classList.add('open'); */
 			}
 		})
 	
-		/* const nav = document.querySelector('#navBar') as HTMLElement; */
 		const nav = document.querySelector('[data-name="navBar"]') as HTMLElement;
 		let navTop = nav.offsetTop;
 		let isFixed = false;
@@ -179,31 +174,14 @@ import { ClientRouter } from "astro:transitions";
 		function fixedNav() {
 			if (window.scrollY >= navTop) {    
 				nav.classList.add('fixed');
-				/* if (!isFixed) {
-					console.log("entro en isFIXED")
-					for (let el of elementos) {
-						el.classList.remove("linkFontSizeBig");
-						el.classList.add("linkFontSizeSmall");
-					}
-				} */
 				isFixed = true
 			} else {
 				nav.classList.remove('fixed');    
-				/* if (isFixed) {
-					console.log("entro en isFIXED")
-					for (let el of elementos) {
-	
-						el.classList.remove("linkFontSizeSmall");
-						el.classList.add("linkFontSizeBig");
-					}
-				}
-				isFixed = false */
 			}
 		}
 
 		const nav2 = document.querySelector('#navBarMobile') as HTMLElement;
 		let navTop2 = nav2.offsetTop;
-		//let isFixed2 = false;
 	
 		function fixedNav2() {
 			if (window.scrollY >= navTop2) {    
@@ -218,7 +196,6 @@ import { ClientRouter } from "astro:transitions";
 		window.addEventListener('scroll', fixedNav2);
 	}
 
-// change color link on scroll acordin to section  //
 	function observeSections() {
 		const links = document.querySelectorAll('nav a');
 		const sections = document.querySelectorAll('[data-name="navLinkField"]');
@@ -265,10 +242,8 @@ import { ClientRouter } from "astro:transitions";
 	
 function toggleTheme() {
 	console.log("toggleTheme")
-  /* const themeSwitch = document.getElementById('theme-toggle'); *//* theme-toggle-label */
   const themeSwitch = document.getElementsByClassName('theme-toggle-label');
   const userTheme = localStorage.getItem('theme');
-  /* const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches; */
   
   const setTheme = (theme: string) => {
     document.documentElement.className = theme; 
