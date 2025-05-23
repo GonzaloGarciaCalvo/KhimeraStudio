@@ -14,6 +14,6 @@ All commands are run from the root of the project, from a terminal:
 ## License
 - **Code**: MIT License - free use, modification and distribution
 - **Images and visual assets**: © Khimera Studio - All rights reserved. 
-  Images in `/assets/images/` cannot be used, copied or 
+  Images in `/assets/` cannot be used, copied or 
   distributed without explicit permission from the author.
 
